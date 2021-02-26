@@ -109,25 +109,54 @@ main .carousel__container {
     margin: 70px 0px;
     padding-bottom: 10px;
 }
-main .carousel__item {
+main .carousel-item {
     width: 200px;
     height: 250px;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden;/*Para que la imagen de fondo quede bien ubicada*/
     margin-right: 10px;
     display: inline-block;
     cursor: pointer;
     background-color: yellow;
     transition: 450ms all;/*Para que la transicion sea fluida y no tam rapira*/
-    transform-origin: center left;/*Para cuando cresca elelemento se centre*/
+    transform-origin: center left;/*Para cuando cresca el elemento se centre*/
+    position: relative;
 }
-main .carousel__item:hover ~ .carousel__item {
-    transform: translate3d(100px, 0, 0);/*Para cuando cresca ele elemento corra las targetas*/
+main .carousel-item:hover ~ .carousel-item {
+    transform: translate3d(100px, 0, 0);/*Para cuando cresca el elemento corra las targetas*/
 }
-main .carousel__container:hover .carousel__item {
+main .carousel__container:hover .carousel-item {
     opacity: 0.3;/*Para darle opacidad al carrucel cuando halla un hover*/
 }
-main .carousel__container:hover .carousel__item:hover {
+main .carousel__container:hover .carousel-item:hover {
     transform: scale(1.5);/*Crece el elemento a esa escala*/
+    opacity: 1;
+}
+.carousel-item__img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;/*Para que la imagen no se distorcione*/
+}
+.carousel-item__details {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    font-size: 1rem;
+    opacity: 0;
+    transition: 450ms opacity;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+}
+.carousel-item__details--img {
+    margin-top: 170px;
+}
+.carousel-item__details--img img{
+    width: 20px;
+    height: 20px;
+}
+.carousel-item__details:hover {
     opacity: 1;
 }
